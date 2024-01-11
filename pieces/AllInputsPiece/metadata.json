@@ -1,7 +1,9 @@
 {
     "name": "AllInputsPiece",
     "description": "This is an AllInputs Piece",
-    "dependency": null,
+    "dependency": {
+        "requirements_file": "requirements_0.txt"
+    },
     "container_resources": {
         "requests": {
             "cpu":  100,
