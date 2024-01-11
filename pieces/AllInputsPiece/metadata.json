@@ -1,0 +1,22 @@
+{
+    "name": "AllInputsPiece",
+    "description": "This is an AllInputs Piece",
+    "dependency": null,
+    "container_resources": {
+        "requests": {
+            "cpu":  100,
+            "memory": 128
+        },
+        "limits": {
+            "cpu": 500,
+            "memory": 512
+        }
+    },
+    "tags": [
+        "All Inputs"
+    ],
+    "style": {
+        "node_label": "All Inputs",
+        "icon_class_name": "mdi:alert"
+    }
+}
