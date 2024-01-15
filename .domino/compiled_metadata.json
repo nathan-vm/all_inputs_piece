@@ -88,12 +88,6 @@
                             "description": "Argument value.",
                             "from_upstream": "always",
                             "title": "Prop2"
-                        },
-                        "prop3": {
-                            "default": null,
-                            "from_upstream": "always",
-                            "title": "Prop3",
-                            "type": "string"
                         }
                     },
                     "title": "InputObject",
@@ -183,35 +177,6 @@
                     "description": "Input enum to be logged.",
                     "title": "Input String Optional"
                 },
-                "input_all_required": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "integer"
-                        }
-                    ],
-                    "default": 1,
-                    "description": "str and int",
-                    "title": "Input All Required"
-                },
-                "input_all": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "integer"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "default": 1,
-                    "description": "str and int",
-                    "title": "Input All"
-                },
                 "input_array_string": {
                     "default": [
                         "default_1",
@@ -265,57 +230,11 @@
                     "title": "Input Array Integer",
                     "type": "array"
                 },
-                "input_array_all_required": {
-                    "default": [
-                        "string",
-                        1
-                    ],
-                    "description": "string and int array",
-                    "items": {
-                        "anyOf": [
-                            {
-                                "type": "string"
-                            },
-                            {
-                                "type": "integer"
-                            }
-                        ]
-                    },
-                    "title": "Input Array All Required",
-                    "type": "array"
-                },
-                "input_array_all": {
-                    "anyOf": [
-                        {
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "string"
-                                    },
-                                    {
-                                        "type": "integer"
-                                    }
-                                ]
-                            },
-                            "type": "array"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "default": [
-                        "string",
-                        1
-                    ],
-                    "description": "string and int array",
-                    "title": "Input Array All"
-                },
                 "input_array_object": {
                     "default": [
                         {
                             "prop1": "",
-                            "prop2": 1,
-                            "prop3": null
+                            "prop2": 1
                         }
                     ],
                     "items": {
