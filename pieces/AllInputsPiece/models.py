@@ -22,12 +22,6 @@ class InputObject(BaseModel):
             "from_upstream": "always"
         }
     )
-    prop3: str = Field(
-        default=None,
-        json_schema_extra={
-            "from_upstream": "always"
-        }
-    )
 
 class InputModel(BaseModel):
     input_string: str = Field(
@@ -79,15 +73,6 @@ class InputModel(BaseModel):
         default=None,
         description='Input enum to be logged.'
     )
-    input_all_required: Union[str,int] = Field(
-        default=1,
-        description="str and int"
-    )
-    input_all: Optional[Union[str,int]] = Field(
-        default=1,
-        description="str and int"
-    )
-
     input_array_string: List[str] = Field(
         default=["default_1", "default_2", "default_3"],
         description='Input array to be logged.'
@@ -103,14 +88,6 @@ class InputModel(BaseModel):
     input_array_integer: List[int] = Field(
         default=[10 , 10 , 10 ],
         description='Input array to be logged.'
-    )
-    input_array_all_required: List[Union[str,int]] = Field(
-        default=["string",1],
-        description="string and int array"
-    )
-    input_array_all: Optional[List[Union[str,int]]] = Field(
-        default=["string",1],
-        description="string and int array"
     )
     input_array_object: List[InputObject] = Field(
         default=[
