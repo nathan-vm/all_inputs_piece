@@ -101,6 +101,20 @@
                     "title": "Input String",
                     "type": "string"
                 },
+                "input_textarea": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "description": "Input string to be logged.",
+                    "title": "Input Textarea",
+                    "widget": "textarea"
+                },
                 "input_code": {
                     "default": "print('Hello world!')",
                     "description": "Input code to be logged.",
