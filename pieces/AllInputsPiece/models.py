@@ -28,6 +28,13 @@ class InputModel(BaseModel):
         default="default value",
         description='Input string to be logged.'
     )
+    input_textarea: Optional[str] = Field(
+        default=None,
+        description='Input string to be logged.',
+        json_schema_extra={
+            'widget':"textarea",
+        }
+    )
     input_code: str = Field(
         default="print('Hello world!')",
         description='Input code to be logged.',
