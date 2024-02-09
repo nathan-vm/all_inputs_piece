@@ -1,2 +1,3 @@
-# [Pieces repository name]
-[Description of this Pieces repository]
+# All Inputs Piece
+
+This repository contains all inputs available in Domino 0.8.4

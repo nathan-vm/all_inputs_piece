@@ -1,6 +1,6 @@
 {
-    "name": "AllInputsPiece",
-    "description": "This is an AllInputs Piece",
+    "name": "FloatPiece",
+    "description": "This is an Float Piece",
     "dependency": {
         "requirements_file": "requirements_0.txt"
     },
@@ -18,7 +18,7 @@
         "All Inputs"
     ],
     "style": {
-        "node_label": "All Inputs",
+        "node_label": "FloatPiece",
         "icon_class_name": "mdi:alert"
     }
 }

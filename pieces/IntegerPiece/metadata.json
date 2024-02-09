@@ -1,0 +1,24 @@
+{
+    "name": "IntegerPiece",
+    "description": "This is an Integer Piece",
+    "dependency": {
+        "requirements_file": "requirements_0.txt"
+    },
+    "container_resources": {
+        "requests": {
+            "cpu":  100,
+            "memory": 128
+        },
+        "limits": {
+            "cpu": 500,
+            "memory": 512
+        }
+    },
+    "tags": [
+        "All Inputs"
+    ],
+    "style": {
+        "node_label": "IntegerPiece",
+        "icon_class_name": "mdi:alert"
+    }
+}
