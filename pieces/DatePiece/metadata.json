@@ -1,0 +1,24 @@
+{
+    "name": "DatePiece",
+    "description": "This is an Date Piece",
+    "dependency": {
+        "requirements_file": "requirements_0.txt"
+    },
+    "container_resources": {
+        "requests": {
+            "cpu":  100,
+            "memory": 128
+        },
+        "limits": {
+            "cpu": 500,
+            "memory": 512
+        }
+    },
+    "tags": [
+        "All Inputs"
+    ],
+    "style": {
+        "node_label": "DatePiece",
+        "icon_class_name": "mdi:alert"
+    }
+}

@@ -1,12 +1,9 @@
 from domino.testing import piece_dry_run
 
-def test_string_piece():
+def test_integer_piece():
     input_data = dict(
-    input_integer=1,
-    # input_integer_optional=1
-    input_enum=1,
-    input_array_integer=[1],
-    input_array_object=[dict(prop1=1)],
+        input_integer=1,
+        input_integer_optional=1
     )
 
     output_data = piece_dry_run(
@@ -15,6 +12,4 @@ def test_string_piece():
     )
 
     assert output_data["input_integer"] is not None
-    assert output_data["input_enum"] is not None
-    assert output_data["input_array_integer"] is not None
-    assert output_data["input_array_object"] is not None
+    assert output_data["input_integer_optional"] is not None
