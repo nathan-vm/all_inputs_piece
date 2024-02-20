@@ -5,15 +5,15 @@
             "requirements_file": "requirements_0.txt"
         },
         "pieces": [
+            "DatePiece",
             "BooleanPiece",
+            "ArrayPiece",
             "StringPiece",
             "FloatPiece",
-            "IntegerPiece",
-            "ArrayPiece",
-            "DatePiece",
-            "EnumPiece"
+            "EnumPiece",
+            "IntegerPiece"
         ],
         "secrets": [],
-        "source_image": "ghcr.io/nathan-vm/all-pieces:0.2.0-group0"
+        "source_image": "ghcr.io/nathan-vm/all-pieces:0.3.0-group0"
     }
 }

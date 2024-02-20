@@ -1,4 +1,125 @@
 {
+    "DatePiece": {
+        "name": "DatePiece",
+        "dependency": {
+            "dockerfile": null,
+            "requirements_file": "requirements_0.txt"
+        },
+        "tags": [
+            "All Inputs"
+        ],
+        "style": {
+            "node_label": "DatePiece",
+            "node_type": "default",
+            "node_style": {
+                "backgroundColor": "#ebebeb"
+            },
+            "useIcon": true,
+            "icon_class_name": "mdi:alert",
+            "iconStyle": {
+                "cursor": "pointer"
+            }
+        },
+        "description": "This is an Date Piece",
+        "container_resources": {
+            "requests": {
+                "cpu": 100,
+                "memory": 128
+            },
+            "limits": {
+                "cpu": 500,
+                "memory": 512
+            }
+        },
+        "input_schema": {
+            "properties": {
+                "input_date": {
+                    "description": "input_date required.",
+                    "format": "date",
+                    "title": "Input Date",
+                    "type": "string"
+                },
+                "input_datetime": {
+                    "anyOf": [
+                        {
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "description": "input_datetime with default=None.",
+                    "title": "Input Datetime"
+                },
+                "input_time": {
+                    "anyOf": [
+                        {
+                            "format": "time",
+                            "type": "string"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": "16:20:00",
+                    "description": "input_time not required time.",
+                    "title": "Input Time"
+                }
+            },
+            "required": [
+                "input_date"
+            ],
+            "title": "InputModel",
+            "type": "object"
+        },
+        "output_schema": {
+            "properties": {
+                "input_date": {
+                    "description": "input_date required.",
+                    "format": "date",
+                    "title": "Input Date",
+                    "type": "string"
+                },
+                "input_datetime": {
+                    "anyOf": [
+                        {
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": null,
+                    "description": "input_datetime with default=None.",
+                    "title": "Input Datetime"
+                },
+                "input_time": {
+                    "anyOf": [
+                        {
+                            "format": "time",
+                            "type": "string"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "default": "16:20:00",
+                    "description": "input_time not required time.",
+                    "title": "Input Time"
+                }
+            },
+            "required": [
+                "input_date"
+            ],
+            "title": "OutputModel",
+            "type": "object"
+        },
+        "secrets_schema": null,
+        "source_url": "https://github.com/nathan-vm/all_inputs_piece/tree/main/pieces/DatePiece"
+    },
     "BooleanPiece": {
         "name": "BooleanPiece",
         "dependency": {
@@ -32,64 +153,124 @@
             }
         },
         "input_schema": {
+            "properties": {
+                "input_boolean": {
+                    "default": false,
+                    "description": "input_boolean required boolean.",
+                    "title": "Input Boolean",
+                    "type": "boolean"
+                }
+            },
+            "title": "InputModel",
+            "type": "object"
+        },
+        "output_schema": {
+            "properties": {
+                "input_boolean": {
+                    "description": "input_boolean required boolean.",
+                    "title": "Input Boolean",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "input_boolean"
+            ],
+            "title": "OutputModel",
+            "type": "object"
+        },
+        "secrets_schema": null,
+        "source_url": "https://github.com/nathan-vm/all_inputs_piece/tree/main/pieces/BooleanPiece"
+    },
+    "ArrayPiece": {
+        "name": "ArrayPiece",
+        "dependency": {
+            "dockerfile": null,
+            "requirements_file": "requirements_0.txt"
+        },
+        "tags": [
+            "All Inputs"
+        ],
+        "style": {
+            "node_label": "ArrayPiece",
+            "node_type": "default",
+            "node_style": {
+                "backgroundColor": "#ebebeb"
+            },
+            "useIcon": true,
+            "icon_class_name": "mdi:alert",
+            "iconStyle": {
+                "cursor": "pointer"
+            }
+        },
+        "description": "This is an Array Piece",
+        "container_resources": {
+            "requests": {
+                "cpu": 100,
+                "memory": 128
+            },
+            "limits": {
+                "cpu": 500,
+                "memory": 512
+            }
+        },
+        "input_schema": {
             "$defs": {
                 "InputObject": {
                     "properties": {
-                        "prop1": {
-                            "description": "prop1 required boolean.",
-                            "title": "Prop1",
-                            "type": "boolean"
+                        "input_1": {
+                            "description": "input_1 string required.",
+                            "from_upstream": "never",
+                            "title": "Input 1",
+                            "type": "string"
                         },
-                        "prop2": {
+                        "input_2": {
                             "anyOf": [
                                 {
-                                    "type": "boolean"
+                                    "type": "string"
                                 },
                                 {
                                     "type": "null"
                                 }
                             ],
                             "default": null,
-                            "description": "prop2 boolean with default=None.",
-                            "title": "Prop2"
+                            "description": "input_1 string required.",
+                            "from_upstream": "allowed",
+                            "title": "Input 2"
+                        },
+                        "input_3": {
+                            "description": "input_3 string required from upstream.",
+                            "from_upstream": "always",
+                            "title": "Input 3",
+                            "type": "string"
                         }
                     },
                     "required": [
-                        "prop1"
+                        "input_1",
+                        "input_3"
                     ],
                     "title": "InputObject",
                     "type": "object"
                 }
             },
             "properties": {
-                "input_boolean": {
-                    "description": "input_boolean required boolean.",
-                    "title": "Input Boolean",
-                    "type": "boolean"
-                },
-                "input_boolean_optional": {
-                    "anyOf": [
-                        {
-                            "type": "boolean"
-                        },
-                        {
-                            "type": "null"
-                        }
+                "input_array_string": {
+                    "default": [
+                        "default_1",
+                        "default_2",
+                        "default_3"
                     ],
-                    "default": null,
-                    "description": "Input enum with default=None.",
-                    "title": "Input Boolean Optional"
-                },
-                "input_array_boolean": {
                     "description": "Input array to be logged.",
+                    "from_upstream": "allowed",
                     "items": {
-                        "type": "boolean"
+                        "type": "string"
                     },
-                    "title": "Input Array Boolean",
+                    "title": "Input Array String",
                     "type": "array"
                 },
                 "input_array_object": {
-                    "description": "Input object required.",
+                    "default": [],
+                    "description": "Input array object to be logged.",
+                    "from_upstream": "never",
                     "items": {
                         "$ref": "#/$defs/InputObject"
                     },
@@ -97,11 +278,6 @@
                     "type": "array"
                 }
             },
-            "required": [
-                "input_boolean",
-                "input_array_boolean",
-                "input_array_object"
-            ],
             "title": "InputModel",
             "type": "object"
         },
@@ -109,61 +285,59 @@
             "$defs": {
                 "InputObject": {
                     "properties": {
-                        "prop1": {
-                            "description": "prop1 required boolean.",
-                            "title": "Prop1",
-                            "type": "boolean"
+                        "input_1": {
+                            "description": "input_1 string required.",
+                            "from_upstream": "never",
+                            "title": "Input 1",
+                            "type": "string"
                         },
-                        "prop2": {
+                        "input_2": {
                             "anyOf": [
                                 {
-                                    "type": "boolean"
+                                    "type": "string"
                                 },
                                 {
                                     "type": "null"
                                 }
                             ],
                             "default": null,
-                            "description": "prop2 boolean with default=None.",
-                            "title": "Prop2"
+                            "description": "input_1 string required.",
+                            "from_upstream": "allowed",
+                            "title": "Input 2"
+                        },
+                        "input_3": {
+                            "description": "input_3 string required from upstream.",
+                            "from_upstream": "always",
+                            "title": "Input 3",
+                            "type": "string"
                         }
                     },
                     "required": [
-                        "prop1"
+                        "input_1",
+                        "input_3"
                     ],
                     "title": "InputObject",
                     "type": "object"
                 }
             },
             "properties": {
-                "input_boolean": {
-                    "description": "input_boolean required boolean.",
-                    "title": "Input Boolean",
-                    "type": "boolean"
-                },
-                "input_boolean_optional": {
-                    "anyOf": [
-                        {
-                            "type": "boolean"
-                        },
-                        {
-                            "type": "null"
-                        }
+                "input_array_string": {
+                    "default": [
+                        "default_1",
+                        "default_2",
+                        "default_3"
                     ],
-                    "default": null,
-                    "description": "Input enum with default=None.",
-                    "title": "Input Boolean Optional"
-                },
-                "input_array_boolean": {
                     "description": "Input array to be logged.",
                     "items": {
-                        "type": "boolean"
+                        "type": "string"
                     },
-                    "title": "Input Array Boolean",
+                    "title": "Input Array String",
                     "type": "array"
                 },
                 "input_array_object": {
-                    "description": "Input object required.",
+                    "default": [],
+                    "description": "Input array object to be logged.",
+                    "from_upstream": "never",
                     "items": {
                         "$ref": "#/$defs/InputObject"
                     },
@@ -171,16 +345,11 @@
                     "type": "array"
                 }
             },
-            "required": [
-                "input_boolean",
-                "input_array_boolean",
-                "input_array_object"
-            ],
             "title": "OutputModel",
             "type": "object"
         },
         "secrets_schema": null,
-        "source_url": "https://github.com/nathan-vm/all_inputs_piece/tree/main/pieces/BooleanPiece"
+        "source_url": "https://github.com/nathan-vm/all_inputs_piece/tree/main/pieces/ArrayPiece"
     },
     "StringPiece": {
         "name": "StringPiece",
@@ -215,47 +384,9 @@
             }
         },
         "input_schema": {
-            "$defs": {
-                "InputEnum": {
-                    "enum": [
-                        "option1",
-                        "option2",
-                        "option3"
-                    ],
-                    "title": "InputEnum",
-                    "type": "string"
-                },
-                "InputObject": {
-                    "properties": {
-                        "prop1": {
-                            "description": "prop1 required string.",
-                            "title": "Prop1",
-                            "type": "string"
-                        },
-                        "prop2": {
-                            "anyOf": [
-                                {
-                                    "type": "string"
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ],
-                            "default": null,
-                            "description": "prop2 string with default=None.",
-                            "title": "Prop2"
-                        }
-                    },
-                    "required": [
-                        "prop1"
-                    ],
-                    "title": "InputObject",
-                    "type": "object"
-                }
-            },
             "properties": {
                 "input_string": {
-                    "description": "input_string required string.",
+                    "description": "Input string required.",
                     "title": "Input String",
                     "type": "string"
                 },
@@ -269,7 +400,7 @@
                         }
                     ],
                     "default": null,
-                    "description": "Input enum with default=None.",
+                    "description": "Input string with default=None.",
                     "title": "Input String Optional"
                 },
                 "input_textarea": {
@@ -281,112 +412,26 @@
                             "type": "null"
                         }
                     ],
+                    "default": "Lorem ipsum",
                     "description": "input_textarea not required string.",
                     "title": "Input Textarea",
                     "widget": "textarea"
                 },
                 "input_code": {
-                    "default": "print('Hello world!')",
                     "description": "input_code string with default.",
                     "title": "Input Code",
                     "type": "string",
                     "widget": "codeeditor"
-                },
-                "input_date": {
-                    "default": "2023-01-01",
-                    "description": "input_date string with default.",
-                    "format": "date",
-                    "title": "Input Date",
-                    "type": "string"
-                },
-                "input_time": {
-                    "default": "16:20:00",
-                    "description": "Input time to be logged.",
-                    "format": "time",
-                    "title": "Input Time",
-                    "type": "string"
-                },
-                "input_datetime": {
-                    "default": "2023-01-01T16:20:00",
-                    "description": "Input datetime to be logged.",
-                    "format": "date-time",
-                    "title": "Input Datetime",
-                    "type": "string"
-                },
-                "input_enum": {
-                    "allOf": [
-                        {
-                            "$ref": "#/$defs/InputEnum"
-                        }
-                    ],
-                    "default": "option1",
-                    "description": "Input enum to be logged."
-                },
-                "input_array_string": {
-                    "description": "Input array to be logged.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "title": "Input Array String",
-                    "type": "array"
-                },
-                "input_array_object": {
-                    "description": "Input object required.",
-                    "items": {
-                        "$ref": "#/$defs/InputObject"
-                    },
-                    "title": "Input Array Object",
-                    "type": "array"
                 }
             },
             "required": [
                 "input_string",
-                "input_textarea",
-                "input_array_string",
-                "input_array_object"
+                "input_code"
             ],
             "title": "InputModel",
             "type": "object"
         },
         "output_schema": {
-            "$defs": {
-                "InputEnum": {
-                    "enum": [
-                        "option1",
-                        "option2",
-                        "option3"
-                    ],
-                    "title": "InputEnum",
-                    "type": "string"
-                },
-                "InputObject": {
-                    "properties": {
-                        "prop1": {
-                            "description": "prop1 required string.",
-                            "title": "Prop1",
-                            "type": "string"
-                        },
-                        "prop2": {
-                            "anyOf": [
-                                {
-                                    "type": "string"
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ],
-                            "default": null,
-                            "description": "prop2 string with default=None.",
-                            "title": "Prop2"
-                        }
-                    },
-                    "required": [
-                        "prop1"
-                    ],
-                    "title": "InputObject",
-                    "type": "object"
-                }
-            },
             "properties": {
                 "input_string": {
                     "description": "input_string required string.",
@@ -425,59 +470,11 @@
                     "title": "Input Code",
                     "type": "string",
                     "widget": "codeeditor"
-                },
-                "input_date": {
-                    "default": "2023-01-01",
-                    "description": "input_date string with default.",
-                    "format": "date",
-                    "title": "Input Date",
-                    "type": "string"
-                },
-                "input_time": {
-                    "default": "16:20:00",
-                    "description": "Input time to be logged.",
-                    "format": "time",
-                    "title": "Input Time",
-                    "type": "string"
-                },
-                "input_datetime": {
-                    "default": "2023-01-01T16:20:00",
-                    "description": "Input datetime to be logged.",
-                    "format": "date-time",
-                    "title": "Input Datetime",
-                    "type": "string"
-                },
-                "input_enum": {
-                    "allOf": [
-                        {
-                            "$ref": "#/$defs/InputEnum"
-                        }
-                    ],
-                    "default": "option1",
-                    "description": "Input enum to be logged."
-                },
-                "input_array_string": {
-                    "description": "Input array to be logged.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "title": "Input Array String",
-                    "type": "array"
-                },
-                "input_array_object": {
-                    "description": "Input object required.",
-                    "items": {
-                        "$ref": "#/$defs/InputObject"
-                    },
-                    "title": "Input Array Object",
-                    "type": "array"
                 }
             },
             "required": [
                 "input_string",
-                "input_textarea",
-                "input_array_string",
-                "input_array_object"
+                "input_textarea"
             ],
             "title": "OutputModel",
             "type": "object"
@@ -518,44 +515,6 @@
             }
         },
         "input_schema": {
-            "$defs": {
-                "InputEnum": {
-                    "enum": [
-                        1.0,
-                        2.0,
-                        3.0
-                    ],
-                    "title": "InputEnum",
-                    "type": "numeric"
-                },
-                "InputObject": {
-                    "properties": {
-                        "prop1": {
-                            "description": "prop1 required float.",
-                            "title": "Prop1",
-                            "type": "number"
-                        },
-                        "prop2": {
-                            "anyOf": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ],
-                            "default": null,
-                            "description": "prop2 float with default=None.",
-                            "title": "Prop2"
-                        }
-                    },
-                    "required": [
-                        "prop1"
-                    ],
-                    "title": "InputObject",
-                    "type": "object"
-                }
-            },
             "properties": {
                 "input_float": {
                     "description": "Input float required.",
@@ -574,80 +533,15 @@
                     "default": null,
                     "description": "Input float with default=None.",
                     "title": "Input Float Optional"
-                },
-                "input_enum": {
-                    "allOf": [
-                        {
-                            "$ref": "#/$defs/InputEnum"
-                        }
-                    ],
-                    "default": 1.0,
-                    "description": "Input enum with default."
-                },
-                "input_array_float": {
-                    "description": "Input array.",
-                    "items": {
-                        "type": "number"
-                    },
-                    "title": "Input Array Float",
-                    "type": "array"
-                },
-                "input_array_object": {
-                    "description": "Input object required.",
-                    "items": {
-                        "$ref": "#/$defs/InputObject"
-                    },
-                    "title": "Input Array Object",
-                    "type": "array"
                 }
             },
             "required": [
-                "input_float",
-                "input_array_float",
-                "input_array_object"
+                "input_float"
             ],
             "title": "InputModel",
             "type": "object"
         },
         "output_schema": {
-            "$defs": {
-                "InputEnum": {
-                    "enum": [
-                        1.0,
-                        2.0,
-                        3.0
-                    ],
-                    "title": "InputEnum",
-                    "type": "numeric"
-                },
-                "InputObject": {
-                    "properties": {
-                        "prop1": {
-                            "description": "prop1 required float.",
-                            "title": "Prop1",
-                            "type": "number"
-                        },
-                        "prop2": {
-                            "anyOf": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ],
-                            "default": null,
-                            "description": "prop2 float with default=None.",
-                            "title": "Prop2"
-                        }
-                    },
-                    "required": [
-                        "prop1"
-                    ],
-                    "title": "InputObject",
-                    "type": "object"
-                }
-            },
             "properties": {
                 "input_float": {
                     "description": "input_float required float.",
@@ -666,43 +560,179 @@
                     "default": null,
                     "description": "Input enum with default=None.",
                     "title": "Input Float Optional"
-                },
-                "input_enum": {
-                    "allOf": [
-                        {
-                            "$ref": "#/$defs/InputEnum"
-                        }
-                    ],
-                    "default": 1.0,
-                    "description": "Input enum."
-                },
-                "input_array_float": {
-                    "description": "Input array.",
-                    "items": {
-                        "type": "number"
-                    },
-                    "title": "Input Array Float",
-                    "type": "array"
-                },
-                "input_array_object": {
-                    "description": "Input object required.",
-                    "items": {
-                        "$ref": "#/$defs/InputObject"
-                    },
-                    "title": "Input Array Object",
-                    "type": "array"
                 }
             },
             "required": [
-                "input_float",
-                "input_array_float",
-                "input_array_object"
+                "input_float"
             ],
             "title": "OutputModel",
             "type": "object"
         },
         "secrets_schema": null,
         "source_url": "https://github.com/nathan-vm/all_inputs_piece/tree/main/pieces/FloatPiece"
+    },
+    "EnumPiece": {
+        "name": "EnumPiece",
+        "dependency": {
+            "dockerfile": null,
+            "requirements_file": "requirements_0.txt"
+        },
+        "tags": [
+            "All Inputs"
+        ],
+        "style": {
+            "node_label": "EnumPiece",
+            "node_type": "default",
+            "node_style": {
+                "backgroundColor": "#ebebeb"
+            },
+            "useIcon": true,
+            "icon_class_name": "mdi:alert",
+            "iconStyle": {
+                "cursor": "pointer"
+            }
+        },
+        "description": "This is an Enum Piece",
+        "container_resources": {
+            "requests": {
+                "cpu": 100,
+                "memory": 128
+            },
+            "limits": {
+                "cpu": 500,
+                "memory": 512
+            }
+        },
+        "input_schema": {
+            "$defs": {
+                "InputEnumFloat": {
+                    "enum": [
+                        10.1,
+                        20.2,
+                        30.3
+                    ],
+                    "title": "InputEnumFloat",
+                    "type": "numeric"
+                },
+                "InputEnumInt": {
+                    "enum": [
+                        1,
+                        2,
+                        3
+                    ],
+                    "title": "InputEnumInt",
+                    "type": "integer"
+                },
+                "InputEnumStr": {
+                    "enum": [
+                        "option1",
+                        "option2",
+                        "option3"
+                    ],
+                    "title": "InputEnumStr",
+                    "type": "string"
+                }
+            },
+            "properties": {
+                "input_enum_string": {
+                    "allOf": [
+                        {
+                            "$ref": "#/$defs/InputEnumStr"
+                        }
+                    ],
+                    "description": "Input string required."
+                },
+                "input_enum_int": {
+                    "allOf": [
+                        {
+                            "$ref": "#/$defs/InputEnumInt"
+                        }
+                    ],
+                    "description": "Input integer required."
+                },
+                "input_enum_float": {
+                    "allOf": [
+                        {
+                            "$ref": "#/$defs/InputEnumFloat"
+                        }
+                    ],
+                    "description": "Input float required."
+                }
+            },
+            "required": [
+                "input_enum_string",
+                "input_enum_int",
+                "input_enum_float"
+            ],
+            "title": "InputModel",
+            "type": "object"
+        },
+        "output_schema": {
+            "$defs": {
+                "InputEnumFloat": {
+                    "enum": [
+                        10.1,
+                        20.2,
+                        30.3
+                    ],
+                    "title": "InputEnumFloat",
+                    "type": "numeric"
+                },
+                "InputEnumInt": {
+                    "enum": [
+                        1,
+                        2,
+                        3
+                    ],
+                    "title": "InputEnumInt",
+                    "type": "integer"
+                },
+                "InputEnumStr": {
+                    "enum": [
+                        "option1",
+                        "option2",
+                        "option3"
+                    ],
+                    "title": "InputEnumStr",
+                    "type": "string"
+                }
+            },
+            "properties": {
+                "input_enum_string": {
+                    "allOf": [
+                        {
+                            "$ref": "#/$defs/InputEnumStr"
+                        }
+                    ],
+                    "description": "Input string required."
+                },
+                "input_enum_int": {
+                    "allOf": [
+                        {
+                            "$ref": "#/$defs/InputEnumInt"
+                        }
+                    ],
+                    "description": "Input integer required."
+                },
+                "input_enum_float": {
+                    "allOf": [
+                        {
+                            "$ref": "#/$defs/InputEnumFloat"
+                        }
+                    ],
+                    "description": "Input float required."
+                }
+            },
+            "required": [
+                "input_enum_string",
+                "input_enum_int",
+                "input_enum_float"
+            ],
+            "title": "OutputModel",
+            "type": "object"
+        },
+        "secrets_schema": null,
+        "source_url": "https://github.com/nathan-vm/all_inputs_piece/tree/main/pieces/EnumPiece"
     },
     "IntegerPiece": {
         "name": "IntegerPiece",
@@ -737,47 +767,10 @@
             }
         },
         "input_schema": {
-            "$defs": {
-                "InputEnum": {
-                    "enum": [
-                        1,
-                        2,
-                        3
-                    ],
-                    "title": "InputEnum",
-                    "type": "integer"
-                },
-                "InputObject": {
-                    "properties": {
-                        "prop1": {
-                            "description": "prop1 required integer.",
-                            "title": "Prop1",
-                            "type": "integer"
-                        },
-                        "prop2": {
-                            "anyOf": [
-                                {
-                                    "type": "integer"
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ],
-                            "default": null,
-                            "description": "prop2 integer with default=None.",
-                            "title": "Prop2"
-                        }
-                    },
-                    "required": [
-                        "prop1"
-                    ],
-                    "title": "InputObject",
-                    "type": "object"
-                }
-            },
             "properties": {
                 "input_integer": {
-                    "description": "input_integer required integer.",
+                    "description": "Input integer required.",
+                    "from_upstream": "allowed",
                     "title": "Input Integer",
                     "type": "integer"
                 },
@@ -791,82 +784,18 @@
                         }
                     ],
                     "default": null,
-                    "description": "Input enum with default=None.",
+                    "description": "Input integer optional.",
+                    "from_upstream": "allowed",
                     "title": "Input Integer Optional"
-                },
-                "input_enum": {
-                    "allOf": [
-                        {
-                            "$ref": "#/$defs/InputEnum"
-                        }
-                    ],
-                    "default": 1,
-                    "description": "Input enum to be logged."
-                },
-                "input_array_integer": {
-                    "description": "Input array to be logged.",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "title": "Input Array Integer",
-                    "type": "array"
-                },
-                "input_array_object": {
-                    "description": "Input object required.",
-                    "items": {
-                        "$ref": "#/$defs/InputObject"
-                    },
-                    "title": "Input Array Object",
-                    "type": "array"
                 }
             },
             "required": [
-                "input_integer",
-                "input_array_integer",
-                "input_array_object"
+                "input_integer"
             ],
             "title": "InputModel",
             "type": "object"
         },
         "output_schema": {
-            "$defs": {
-                "InputEnum": {
-                    "enum": [
-                        1,
-                        2,
-                        3
-                    ],
-                    "title": "InputEnum",
-                    "type": "integer"
-                },
-                "InputObject": {
-                    "properties": {
-                        "prop1": {
-                            "description": "prop1 required integer.",
-                            "title": "Prop1",
-                            "type": "integer"
-                        },
-                        "prop2": {
-                            "anyOf": [
-                                {
-                                    "type": "integer"
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ],
-                            "default": null,
-                            "description": "prop2 integer with default=None.",
-                            "title": "Prop2"
-                        }
-                    },
-                    "required": [
-                        "prop1"
-                    ],
-                    "title": "InputObject",
-                    "type": "object"
-                }
-            },
             "properties": {
                 "input_integer": {
                     "description": "input_integer required integer.",
@@ -883,39 +812,12 @@
                         }
                     ],
                     "default": null,
-                    "description": "Input enum with default=None.",
+                    "description": "Input integer optional.",
                     "title": "Input Integer Optional"
-                },
-                "input_enum": {
-                    "allOf": [
-                        {
-                            "$ref": "#/$defs/InputEnum"
-                        }
-                    ],
-                    "default": 1,
-                    "description": "Input enum to be logged."
-                },
-                "input_array_integer": {
-                    "description": "Input array to be logged.",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "title": "Input Array Integer",
-                    "type": "array"
-                },
-                "input_array_object": {
-                    "description": "Input object required.",
-                    "items": {
-                        "$ref": "#/$defs/InputObject"
-                    },
-                    "title": "Input Array Object",
-                    "type": "array"
                 }
             },
             "required": [
-                "input_integer",
-                "input_array_integer",
-                "input_array_object"
+                "input_integer"
             ],
             "title": "OutputModel",
             "type": "object"
